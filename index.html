@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>苹果官网媒体查询响应式布局练习</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/banner.css" />
+    <link rel="stylesheet" type="text/css" href="css/hbanner.css" />
+</head>
+
+<body>
+    <!-- 菜单导航部分 -->
+    <div class="nav">
+        <!-- 正经菜单 -->
+        <!-- logo部分是通过设置背景图片的方式展示的，走左按钮购物车的字体图标也是这样 -->
+        <a href="" class="logo"></a>
+        <a href="" class="text">MAC</a>
+        <a href="" class="text">IPAD</a>
+        <a href="" class="text">IPHONE</a>
+        <a href="" class="text">WATCH</a>
+        <a href="" class="text">TV</a>
+        <a href="" class="text">MUSIC</a>
+        <a href="" class="text">SUPPORT</a>
+        <!-- 搜索按钮、购物车 字体图标 -->
+        <a href="" class="search"></a>
+        <a href="" class="buy"></a>
+        <!-- 通过label和单选按钮相结合，隐藏单选按钮，实现点击label内容，弹出搜索详细菜单 -->
+        <input hidden="hidden" type="checkbox" name="choose" id="choose" value="" />
+        <label for="choose" class="toggleBtn">
+				<span class="line"></span>
+				<span class="line"></span>
+			</label>
+        <!--
+				快捷方式：div.navpage>.navMain>(.searchInput+.navList>(a.navText)*7)
+      -->
+        <!-- 菜单导航中，隐藏的变成移动端后才显示的菜单 -->
+        <div class="navpage">
+            <div class="navMain">
+                <!-- 搜索输入框 -->
+                <div class="searchInput">
+                    <div class="icon"></div>
+                    <input type="text" placeholder="search apple.com" />
+                </div>
+                <!-- 水平线 -->
+                <hr />
+                <!-- 新的菜单列表 -->
+                <div class="navList">
+                    <a href="" class="navText">MAC</a>
+                    <a href="" class="navText">IPAD</a>
+                    <a href="" class="navText">IPHONE</a>
+                    <a href="" class="navText">WATCH</a>
+                    <a href="" class="navText">TV</a>
+                    <a href="" class="navText">MUSIC</a>
+                    <a href="" class="navText">SUPORT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--快捷方式：.banner>(h1+h2+p+(.link>(a*2)))-->
+    <div class="banner">
+        <h1>iPhone 11 Pro</h1>
+        <h2>Pro cameras. Pro display. Pro performance.</h2>
+        <p>From $24.95/mo. or $599 with trade‑in.</p>
+        <div class="link">
+            <a href="">Learn more</a> <span>></span>
+            <a href="">Buy</a> <span>></span>
+        </div>
+    </div>
+
+    <div class="hbanner">
+
+        <div class="banner">
+            <h1>iPhone 11 Pro</h1>
+            <h2>Pro cameras. Pro display. Pro performance.</h2>
+            <div class="link"><a href="">Learn more</a> <span>></span></div>
+        </div>
+
+        <div class="banner">
+            <h1>iPhone 11 Pro</h1>
+            <h2>Pro cameras. Pro display. Pro performance.</h2>
+            <div class="link"><a href="">Learn more</a> <span>></span></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

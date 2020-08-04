@@ -1,0 +1,207 @@
+/* 初始化样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 导航栏采用弹性布局，宽度100% */
+    width: 100%;
+    height: 44px;
+    /* 背景中的a，表示透明度 */
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    /* 此时pc端样式 a菜单有固定的宽度 */
+    width: 102px;
+    text-align: center;
+}
+
+.nav .logo {
+    height: 44px;
+    background-image: url(../img/logo.svg);
+    /*设置背景图片不重复*/
+    background-repeat: no-repeat;
+    /*设置背景图片的位置*/
+    background-position: center;
+}
+
+.nav .search {
+    height: 44px;
+    background-image: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav .buy {
+    height: 44px;
+    background-image: url(../img/buy.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.toggleBtn {
+    /* 最开始这个x按钮是隐藏的，媒体查询变成移动端时才会显示 */
+    display: none;
+    position: relative;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleBtn .line {
+    height: 1px;
+    width: 18px;
+    background-color: #fff;
+    /*设置旋转的中心点*/
+    transform-origin: left center;
+    transition: all .5s;
+}
+
+.toggleBtn .line:nth-child(1) {
+    position: absolute;
+    left: calc(50% - 9px);
+    top: 14px;
+}
+
+.toggleBtn .line:nth-child(2) {
+    position: absolute;
+    left: calc(50% - 9px);
+    top: 26px;
+}
+
+.navpage {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 0vh;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    transition: all .8s;
+    overflow: hidden;
+}
+
+.navpage .navMain {
+    width: 100%;
+}
+
+
+/* 设定屏幕小于 768px 时的样式 */
+
+@media only screen and (max-width:768px) {
+    .toggleBtn {
+        display: flex;
+        position: relative;
+        z-index: 100;
+    }
+    .nav .logo {
+        z-index: 100;
+        position: relative;
+    }
+    .toggleBtn .line {
+        display: block;
+    }
+    .nav .text,
+    .nav .search {
+        /* 变成移动端之后，原来的菜单和搜索字体图标隐藏起来 */
+        display: none;
+    }
+    .nav {
+        /* 菜单的居中显示所有菜单项 变为 贴边显示菜单项 */
+        justify-content: space-between;
+    }
+    .nav a,
+    .nav label {
+        width: 50px;
+    }
+    .nav .toggleBtn {
+        /* 移动端后，改变上面的菜单按钮顺序 */
+        order: 1;
+    }
+    .nav .logo {
+        order: 2;
+    }
+    .nav .buy {
+        order: 3;
+    }
+    /* 被选中状态的单选按钮，它下面的label的 子元素线 */
+    #choose:checked~.toggleBtn .line:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    #choose:checked~.toggleBtn .line:nth-child(2) {
+        transform: rotate(-45deg);
+    }
+    /*设定复选框为选中状态时，导航页面显示*/
+    #choose:checked~.navpage {
+        display: flex;
+        /*
+		 vw:viewport width:100vw == 100%viewport width
+		 vh:viewport height:100vh == 100% viewport height
+		 * */
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: #000;
+        color: #fff;
+        flex-direction: column;
+        padding-top: 54px;
+    }
+    .searchInput {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 36px;
+        margin: 0 28px 20px;
+        border-radius: 4px;
+        color: #ccc;
+        background-color: rgba(45, 45, 45, 0.98);
+    }
+    .searchInput .icon {
+        /* 当设定背景图片时，一定要考虑图片url,重复，位置，尺寸 */
+        width: 32px;
+        height: 36px;
+        background-image: url(../img/search.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .searchInput input {
+        flex: 1;
+        margin: 0 10px;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+    }
+    hr {
+        border-color: #333;
+    }
+    .navList {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0 38px;
+    }
+    .navList a {
+        width: 100%;
+        height: 44px;
+        color: #fff;
+        text-align: left;
+        border-bottom: 1px solid #333;
+        line-height: 44px;
+    }
+    .navList a:last-child {
+        border-bottom: none;
+    }
+}
